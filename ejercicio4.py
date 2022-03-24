@@ -14,21 +14,21 @@ class cuenta_banco:
         operacion = input("¿Desea hacer una operación como transferir dinero,retirar o abonar?")
         if operacion == "no":
             print("Vale gracias por consultar este banco. Hasta pronto.")
-        if operacion == "abonar":
+        elif operacion == "abonar":
             introducir_dinero= float(input("Introduzca el dinero de desea ingresar en la cuenta: "))
-            saldo = (saldo + introducir_dinero)
+            self.saldo = (self.saldo + introducir_dinero)
             print("Su saldo es de " , saldo , "€")
-        if operacion == "transferir":
+        elif operacion == "transferir":
             transferir = float(input("¿Cuanto dinero deseas transferir?:"))
-            print("El saldo de su cuenta es " , saldo - transferir, "€")
-        if operacion == "retirar":
+            self.saldo = self.saldo - transferir
+            if self.saldo < transferir:
+                print("No tienes suficiente saldo para esa transferencia")
+        elif operacion == "retirar":
             retirar_dinero= float(input("Introduzca el dinero que desea retirar: "))
-            saldo = (saldo - retirar_dinero)
-            if saldo >= 0:
-                print("Con la retirada de " , retirar_dinero , " su saldo disminuye a un total de " , saldo , "€")
-            if saldo < 0:
-                saldo = saldo * -1
-                print("Con la retirada de " , retirar_dinero ,"Usted no tiene saldo en la cuenta, además debe un total de  " , saldo , "€")
+            self.saldo = (self.saldo - retirar_dinero)
+            if self.saldo < retirar_dinero:
+                print("No tienes esa cantidad de dinero para retirar")
+            
         
 
 class vip:
