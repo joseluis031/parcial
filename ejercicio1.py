@@ -13,5 +13,5 @@ class libro:
     def get_isbn(self):
         return self.isbn
     
-final = libro ("jose","aventuras",92248)
-print (final.get_autor,final.get_genero,final.get_isbn)
+final = libro("jose","aventuras",92248)
+print ("El autor del libro es:",final.get_autor(),".El genero del libro es: ",final.get_genero(),".El isbn del libro es: ",final.get_isbn())
