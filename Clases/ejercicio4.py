@@ -8,6 +8,7 @@ ncuenta = random.randint(100000000000, 999999999999)
 print ("Tu numero de cuenta es: ",ncuenta)
 saldo = 10000
 print ("Tu saldo es: ",saldo)
+saldonegativo = -10000
 
 inicio = datetime(2015, 1, 30)
 final =  datetime(2017, 5, 28)
@@ -69,7 +70,25 @@ class vip(cuenta_banco):
         cuenta_banco.__init__(self,id,nombre,ncuenta,saldo)
     def transferencia(self):
         return super().transferencia()
-    def retirar(self):
-        return super().retirar()
-         
-    
+    def retirar3(self):
+        operacion4 = input("¿Desea hacer una operacion de retirar dinero?(escriba retirar)")
+        if operacion4 == "retirar":
+            retirar_dinero= 78
+            self.saldo = (self.saldo - retirar_dinero)
+            if self.saldo < retirar_dinero:
+                    print("No tienes esa cantidad de dinero para retirar")
+            elif self.saldo < self.saldonegativo:
+                print ("Su saldo supera su saldo maximo negativo, no puede seguir retirando")
+
+
+if __name__ == "__main__":
+    main = int(input("Que cuenta deseas abrir(1(normal),2(plazo fijo) o 3(vip)):"))
+    if main == 1:
+        total = cuenta_banco(id,nombre,ncuenta,saldo)
+        print(total.transferencia(),total.retirar())
+    elif main == 2:
+        total1 = Plazo_fijo(id,nombre,ncuenta,saldo)
+        print(total1.transferencia(), total1.retirar2())
+    elif main == 3:
+        total2 = vip(id,nombre,ncuenta,saldo,saldonegativo)
+        print(total2.transferencia(), total2.retirar3())
