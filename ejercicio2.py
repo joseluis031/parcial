@@ -3,12 +3,12 @@ class animal:
         self.tipo = tipo
         
 class mamifero(animal): #utilizo la herencia multiple
-    def __init__(self,tipo,mamifero):
-        self.mamifero = mamifero
+    def __init__(self,tipo,mamiferoo):
+        self.mamiferoo = mamiferoo
         animal.__init__(self, tipo)
         
-class oviparo(mamifero):
-    def __init__(self,tipo,mamifero,oviparo):
+class oviparo(mamifero,animal):
+    def __init__(self,tipo,mamiferoo,oviparo):
         self.oviparo = oviparo
-        mamifero.__init__(self, tipo, mamifero)
+        mamifero.__init__(self, tipo, mamiferoo)
         
